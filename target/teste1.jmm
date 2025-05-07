@@ -1,0 +1,9 @@
+program exemplo1 {
+    final int a = 42;
+    final char b = 'z';
+    int x, y, z;
+}
+
+
+
+

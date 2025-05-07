@@ -1,0 +1,10 @@
+program exemplo2 {
+    class MinhaClasse {
+        int atributo1;
+        char atributo2;
+    }
+    void main() {
+        return;
+    }
+}
+
