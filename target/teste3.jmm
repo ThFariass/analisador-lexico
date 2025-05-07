@@ -1,0 +1,12 @@
+program exemplo3 {
+    int x;
+    void main() {
+        x = 10;
+        if (x > 0) {
+            x = x - 1;
+        } else {
+            x = 0;
+        }
+        while (x != 0) x = x - 1;
+    }
+}

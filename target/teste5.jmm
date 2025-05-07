@@ -1,0 +1,11 @@
+program exemplo5 {
+    class Vetor {
+        int dados[10];
+    }
+    void main() {
+        Vetor v;
+        v = new Vetor();
+        v.dados[0] = 1;
+        v.dados[1] = v.dados[0] + 2;
+    }
+}

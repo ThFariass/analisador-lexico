@@ -1,0 +1,4 @@
+scanner.flex ---(JFlex)---> Scanner.java ---(usa)---> Main.java
+                                                       |
+                                                       v
+                                                  Arquivos de teste
