@@ -1,0 +1,73 @@
+Linha 1, Col 1 | PROGRAM    | program | Código: 1
+Linha 1, Col 9 | IDENT      | exemplo5 | Código: 12
+Linha 1, Col 18 | LBRACE     | { | Código: 27
+Linha 2, Col 5 | CLASS      | class | Código: 3
+Linha 2, Col 11 | IDENT      | Vetor | Código: 12
+Linha 2, Col 17 | LBRACE     | { | Código: 27
+Linha 3, Col 9 | IDENT      | int | Código: 12
+Linha 3, Col 13 | IDENT      | dados | Código: 12
+Linha 3, Col 18 | LBRACKET   | [ | Código: 31
+Linha 3, Col 19 | NUMBER     | 10 | Código: 13
+Linha 3, Col 21 | RBRACKET   | ] | Código: 32
+Linha 3, Col 22 | SEMICOLON  | ; | Código: 33
+Linha 4, Col 5 | RBRACE     | } | Código: 28
+Linha 5, Col 5 | VOID       | void | Código: 4
+Linha 5, Col 10 | IDENT      | main | Código: 12
+Linha 5, Col 14 | LPAREN     | ( | Código: 29
+Linha 5, Col 15 | RPAREN     | ) | Código: 30
+Linha 5, Col 17 | LBRACE     | { | Código: 27
+Linha 6, Col 9 | IDENT      | Vetor | Código: 12
+Linha 6, Col 15 | IDENT      | v | Código: 12
+Linha 6, Col 16 | SEMICOLON  | ; | Código: 33
+Linha 7, Col 9 | IDENT      | v | Código: 12
+Linha 7, Col 11 | ASSIGN     | = | Código: 26
+Linha 7, Col 13 | NEW        | new | Código: 11
+Linha 7, Col 17 | IDENT      | Vetor | Código: 12
+Linha 7, Col 22 | LPAREN     | ( | Código: 29
+Linha 7, Col 23 | RPAREN     | ) | Código: 30
+Linha 7, Col 24 | SEMICOLON  | ; | Código: 33
+Linha 8, Col 9 | IDENT      | v | Código: 12
+Linha 8, Col 10 | DOT        | . | Código: 35
+Linha 8, Col 11 | IDENT      | dados | Código: 12
+Linha 8, Col 16 | LBRACKET   | [ | Código: 31
+Linha 8, Col 17 | NUMBER     | 0 | Código: 13
+Linha 8, Col 18 | RBRACKET   | ] | Código: 32
+Linha 8, Col 20 | ASSIGN     | = | Código: 26
+Linha 8, Col 22 | NUMBER     | 1 | Código: 13
+Linha 8, Col 23 | SEMICOLON  | ; | Código: 33
+Linha 9, Col 9 | IDENT      | v | Código: 12
+Linha 9, Col 10 | DOT        | . | Código: 35
+Linha 9, Col 11 | IDENT      | dados | Código: 12
+Linha 9, Col 16 | LBRACKET   | [ | Código: 31
+Linha 9, Col 17 | NUMBER     | 1 | Código: 13
+Linha 9, Col 18 | RBRACKET   | ] | Código: 32
+Linha 9, Col 20 | ASSIGN     | = | Código: 26
+Linha 9, Col 22 | IDENT      | v | Código: 12
+Linha 9, Col 23 | DOT        | . | Código: 35
+Linha 9, Col 24 | IDENT      | dados | Código: 12
+Linha 9, Col 29 | LBRACKET   | [ | Código: 31
+Linha 9, Col 30 | NUMBER     | 0 | Código: 13
+Linha 9, Col 31 | RBRACKET   | ] | Código: 32
+Linha 9, Col 33 | PLUS       | + | Código: 15
+Linha 9, Col 35 | NUMBER     | 2 | Código: 13
+Linha 9, Col 36 | SEMICOLON  | ; | Código: 33
+Linha 10, Col 5 | RBRACE     | } | Código: 28
+Linha 11, Col 1 | RBRACE     | } | Código: 28
+
+=== Resumo dos Tokens ===
+NEW             : 1
+NUMBER          : 6
+LPAREN          : 2
+DOT             : 3
+LBRACKET        : 4
+RBRACKET        : 4
+CLASS           : 1
+RPAREN          : 2
+ASSIGN          : 3
+IDENT           : 15
+RBRACE          : 3
+SEMICOLON       : 5
+VOID            : 1
+PROGRAM         : 1
+LBRACE          : 3
+PLUS            : 1

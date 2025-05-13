@@ -1,0 +1,34 @@
+Linha 1, Col 1 | PROGRAM    | program | Código: 1
+Linha 1, Col 9 | IDENT      | exemplo2 | Código: 12
+Linha 1, Col 18 | LBRACE     | { | Código: 27
+Linha 2, Col 5 | CLASS      | class | Código: 3
+Linha 2, Col 11 | IDENT      | MinhaClasse | Código: 12
+Linha 2, Col 23 | LBRACE     | { | Código: 27
+Linha 3, Col 9 | IDENT      | int | Código: 12
+Linha 3, Col 13 | IDENT      | atributo1 | Código: 12
+Linha 3, Col 22 | SEMICOLON  | ; | Código: 33
+Linha 4, Col 9 | IDENT      | char | Código: 12
+Linha 4, Col 14 | IDENT      | atributo2 | Código: 12
+Linha 4, Col 23 | SEMICOLON  | ; | Código: 33
+Linha 5, Col 5 | RBRACE     | } | Código: 28
+Linha 6, Col 5 | VOID       | void | Código: 4
+Linha 6, Col 10 | IDENT      | main | Código: 12
+Linha 6, Col 14 | LPAREN     | ( | Código: 29
+Linha 6, Col 15 | RPAREN     | ) | Código: 30
+Linha 6, Col 17 | LBRACE     | { | Código: 27
+Linha 7, Col 9 | RETURN     | return | Código: 8
+Linha 7, Col 15 | SEMICOLON  | ; | Código: 33
+Linha 8, Col 5 | RBRACE     | } | Código: 28
+Linha 9, Col 1 | RBRACE     | } | Código: 28
+
+=== Resumo dos Tokens ===
+RETURN          : 1
+IDENT           : 7
+RBRACE          : 3
+SEMICOLON       : 3
+LPAREN          : 1
+CLASS           : 1
+RPAREN          : 1
+VOID            : 1
+PROGRAM         : 1
+LBRACE          : 3

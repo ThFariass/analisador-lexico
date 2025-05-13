@@ -336,42 +336,62 @@ public class Scanner {
   private boolean zzEOFDone;
 
   /* user code: */
-    public static final int PROGRAM = 1;
-    public static final int FINAL = 2;
-    public static final int CLASS = 3;
-    public static final int VOID = 4;
-    public static final int IF = 5;
-    public static final int ELSE = 6;
-    public static final int WHILE = 7;
-    public static final int RETURN = 8;
-    public static final int READ = 9;
-    public static final int PRINT = 10;
-    public static final int NEW = 11;
-    public static final int IDENT = 12;
-    public static final int NUMBER = 13;
-    public static final int CHARCONST = 14;
-    public static final int PLUS = 15;
-    public static final int MINUS = 16;
-    public static final int TIMES = 17;
-    public static final int DIV = 18;
-    public static final int MOD = 19;
-    public static final int EQ = 20;
-    public static final int NE = 21;
-    public static final int GT = 22;
-    public static final int GE = 23;
-    public static final int LT = 24;
-    public static final int LE = 25;
-    public static final int ASSIGN = 26;
-    public static final int LBRACE = 27;
-    public static final int RBRACE = 28;
-    public static final int LPAREN = 29;
-    public static final int RPAREN = 30;
-    public static final int LBRACKET = 31;
-    public static final int RBRACKET = 32;
-    public static final int SEMICOLON = 33;
-    public static final int COMMA = 34;
-    public static final int DOT = 35;
-    public static final int EOF = -1;
+    // Variáveis simples para contagem
+    java.util.Map contagemTokens = new java.util.HashMap();
+
+    void contaToken(String token) {
+        Object val = contagemTokens.get(token);
+        if (val == null) {
+            contagemTokens.put(token, 1);
+        } else {
+            contagemTokens.put(token, ((Integer)val) + 1);
+        }
+    }
+
+    void imprimeResumo() {
+        System.out.println("\n=== Resumo dos Tokens ===");
+        for (java.util.Iterator it = contagemTokens.keySet().iterator(); it.hasNext();) {
+            String key = (String) it.next();
+            System.out.printf("%-15s : %d\n", key, (Integer)contagemTokens.get(key));
+        }
+    }
+
+    final int PROGRAM = 1;
+    final int FINAL = 2;
+    final int CLASS = 3;
+    final int VOID = 4;
+    final int IF = 5;
+    final int ELSE = 6;
+    final int WHILE = 7;
+    final int RETURN = 8;
+    final int READ = 9;
+    final int PRINT = 10;
+    final int NEW = 11;
+    final int IDENT = 12;
+    final int NUMBER = 13;
+    final int CHARCONST = 14;
+    final int PLUS = 15;
+    final int MINUS = 16;
+    final int TIMES = 17;
+    final int DIV = 18;
+    final int MOD = 19;
+    final int EQ = 20;
+    final int NE = 21;
+    final int GT = 22;
+    final int GE = 23;
+    final int LT = 24;
+    final int LE = 25;
+    final int ASSIGN = 26;
+    final int LBRACE = 27;
+    final int RBRACE = 28;
+    final int LPAREN = 29;
+    final int RPAREN = 30;
+    final int LBRACKET = 31;
+    final int RBRACKET = 32;
+    final int SEMICOLON = 33;
+    final int COMMA = 34;
+    final int DOT = 35;
+    final int EOF = -1;
 
 
   /**
@@ -781,13 +801,13 @@ public class Scanner {
       if (zzInput == YYEOF && zzStartRead == zzCurrentPos) {
         zzAtEOF = true;
               {
-                return EOF;
+                imprimeResumo(); return EOF;
               }
       }
       else {
         switch (zzAction < 0 ? zzAction : ZZ_ACTION[zzAction]) {
           case 1:
-            { System.err.println("Caractere inválido: " + yytext());
+            { System.err.printf("Linha %d, Col %d | Caractere inválido: %s\n", yyline+1, yycolumn+1, yytext());
             }
           // fall through
           case 38: break;
@@ -797,177 +817,177 @@ public class Scanner {
           // fall through
           case 39: break;
           case 3:
-            { System.out.println("MOD\t" + yytext()); return MOD;
+            { contaToken("MOD"); System.out.printf("Linha %d, Col %d | %-10s | %s | Código: %d\n", yyline+1, yycolumn+1, "MOD", yytext(), MOD); return MOD;
             }
           // fall through
           case 40: break;
           case 4:
-            { System.out.println("LPAREN\t" + yytext()); return LPAREN;
+            { contaToken("LPAREN"); System.out.printf("Linha %d, Col %d | %-10s | %s | Código: %d\n", yyline+1, yycolumn+1, "LPAREN", yytext(), LPAREN); return LPAREN;
             }
           // fall through
           case 41: break;
           case 5:
-            { System.out.println("RPAREN\t" + yytext()); return RPAREN;
+            { contaToken("RPAREN"); System.out.printf("Linha %d, Col %d | %-10s | %s | Código: %d\n", yyline+1, yycolumn+1, "RPAREN", yytext(), RPAREN); return RPAREN;
             }
           // fall through
           case 42: break;
           case 6:
-            { System.out.println("TIMES\t" + yytext()); return TIMES;
+            { contaToken("TIMES"); System.out.printf("Linha %d, Col %d | %-10s | %s | Código: %d\n", yyline+1, yycolumn+1, "TIMES", yytext(), TIMES); return TIMES;
             }
           // fall through
           case 43: break;
           case 7:
-            { System.out.println("PLUS\t" + yytext()); return PLUS;
+            { contaToken("PLUS"); System.out.printf("Linha %d, Col %d | %-10s | %s | Código: %d\n", yyline+1, yycolumn+1, "PLUS", yytext(), PLUS); return PLUS;
             }
           // fall through
           case 44: break;
           case 8:
-            { System.out.println("COMMA\t" + yytext()); return COMMA;
+            { contaToken("COMMA"); System.out.printf("Linha %d, Col %d | %-10s | %s | Código: %d\n", yyline+1, yycolumn+1, "COMMA", yytext(), COMMA); return COMMA;
             }
           // fall through
           case 45: break;
           case 9:
-            { System.out.println("MINUS\t" + yytext()); return MINUS;
+            { contaToken("MINUS"); System.out.printf("Linha %d, Col %d | %-10s | %s | Código: %d\n", yyline+1, yycolumn+1, "MINUS", yytext(), MINUS); return MINUS;
             }
           // fall through
           case 46: break;
           case 10:
-            { System.out.println("DOT\t" + yytext()); return DOT;
+            { contaToken("DOT"); System.out.printf("Linha %d, Col %d | %-10s | %s | Código: %d\n", yyline+1, yycolumn+1, "DOT", yytext(), DOT); return DOT;
             }
           // fall through
           case 47: break;
           case 11:
-            { System.out.println("DIV\t" + yytext()); return DIV;
+            { contaToken("DIV"); System.out.printf("Linha %d, Col %d | %-10s | %s | Código: %d\n", yyline+1, yycolumn+1, "DIV", yytext(), DIV); return DIV;
             }
           // fall through
           case 48: break;
           case 12:
-            { System.out.println("NUMBER\t" + yytext()); return NUMBER;
+            { contaToken("NUMBER"); System.out.printf("Linha %d, Col %d | %-10s | %s | Código: %d\n", yyline+1, yycolumn+1, "NUMBER", yytext(), NUMBER); return NUMBER;
             }
           // fall through
           case 49: break;
           case 13:
-            { System.out.println("SEMICOLON\t" + yytext()); return SEMICOLON;
+            { contaToken("SEMICOLON"); System.out.printf("Linha %d, Col %d | %-10s | %s | Código: %d\n", yyline+1, yycolumn+1, "SEMICOLON", yytext(), SEMICOLON); return SEMICOLON;
             }
           // fall through
           case 50: break;
           case 14:
-            { System.out.println("LT\t" + yytext()); return LT;
+            { contaToken("LT"); System.out.printf("Linha %d, Col %d | %-10s | %s | Código: %d\n", yyline+1, yycolumn+1, "LT", yytext(), LT); return LT;
             }
           // fall through
           case 51: break;
           case 15:
-            { System.out.println("ASSIGN\t" + yytext()); return ASSIGN;
+            { contaToken("ASSIGN"); System.out.printf("Linha %d, Col %d | %-10s | %s | Código: %d\n", yyline+1, yycolumn+1, "ASSIGN", yytext(), ASSIGN); return ASSIGN;
             }
           // fall through
           case 52: break;
           case 16:
-            { System.out.println("GT\t" + yytext()); return GT;
+            { contaToken("GT"); System.out.printf("Linha %d, Col %d | %-10s | %s | Código: %d\n", yyline+1, yycolumn+1, "GT", yytext(), GT); return GT;
             }
           // fall through
           case 53: break;
           case 17:
-            { System.out.println("IDENT\t" + yytext()); return IDENT;
+            { contaToken("IDENT"); System.out.printf("Linha %d, Col %d | %-10s | %s | Código: %d\n", yyline+1, yycolumn+1, "IDENT", yytext(), IDENT); return IDENT;
             }
           // fall through
           case 54: break;
           case 18:
-            { System.out.println("LBRACKET\t" + yytext()); return LBRACKET;
+            { contaToken("LBRACKET"); System.out.printf("Linha %d, Col %d | %-10s | %s | Código: %d\n", yyline+1, yycolumn+1, "LBRACKET", yytext(), LBRACKET); return LBRACKET;
             }
           // fall through
           case 55: break;
           case 19:
-            { System.out.println("RBRACKET\t" + yytext()); return RBRACKET;
+            { contaToken("RBRACKET"); System.out.printf("Linha %d, Col %d | %-10s | %s | Código: %d\n", yyline+1, yycolumn+1, "RBRACKET", yytext(), RBRACKET); return RBRACKET;
             }
           // fall through
           case 56: break;
           case 20:
-            { System.out.println("LBRACE\t" + yytext()); return LBRACE;
+            { contaToken("LBRACE"); System.out.printf("Linha %d, Col %d | %-10s | %s | Código: %d\n", yyline+1, yycolumn+1, "LBRACE", yytext(), LBRACE); return LBRACE;
             }
           // fall through
           case 57: break;
           case 21:
-            { System.out.println("RBRACE\t" + yytext()); return RBRACE;
+            { contaToken("RBRACE"); System.out.printf("Linha %d, Col %d | %-10s | %s | Código: %d\n", yyline+1, yycolumn+1, "RBRACE", yytext(), RBRACE); return RBRACE;
             }
           // fall through
           case 58: break;
           case 22:
-            { System.out.println("NE\t" + yytext()); return NE;
+            { contaToken("NE"); System.out.printf("Linha %d, Col %d | %-10s | %s | Código: %d\n", yyline+1, yycolumn+1, "NE", yytext(), NE); return NE;
             }
           // fall through
           case 59: break;
           case 23:
-            { System.out.println("LE\t" + yytext()); return LE;
+            { contaToken("LE"); System.out.printf("Linha %d, Col %d | %-10s | %s | Código: %d\n", yyline+1, yycolumn+1, "LE", yytext(), LE); return LE;
             }
           // fall through
           case 60: break;
           case 24:
-            { System.out.println("EQ\t" + yytext()); return EQ;
+            { contaToken("EQ"); System.out.printf("Linha %d, Col %d | %-10s | %s | Código: %d\n", yyline+1, yycolumn+1, "EQ", yytext(), EQ); return EQ;
             }
           // fall through
           case 61: break;
           case 25:
-            { System.out.println("GE\t" + yytext()); return GE;
+            { contaToken("GE"); System.out.printf("Linha %d, Col %d | %-10s | %s | Código: %d\n", yyline+1, yycolumn+1, "GE", yytext(), GE); return GE;
             }
           // fall through
           case 62: break;
           case 26:
-            { System.out.println("IF\t" + yytext()); return IF;
+            { contaToken("IF"); System.out.printf("Linha %d, Col %d | %-10s | %s | Código: %d\n", yyline+1, yycolumn+1, "IF", yytext(), IF); return IF;
             }
           // fall through
           case 63: break;
           case 27:
-            { System.out.println("CHARCONST\t" + yytext()); return CHARCONST;
+            { contaToken("CHARCONST"); System.out.printf("Linha %d, Col %d | %-10s | %s | Código: %d\n", yyline+1, yycolumn+1, "CHARCONST", yytext(), CHARCONST); return CHARCONST;
             }
           // fall through
           case 64: break;
           case 28:
-            { System.out.println("NEW\t" + yytext()); return NEW;
+            { contaToken("NEW"); System.out.printf("Linha %d, Col %d | %-10s | %s | Código: %d\n", yyline+1, yycolumn+1, "NEW", yytext(), NEW); return NEW;
             }
           // fall through
           case 65: break;
           case 29:
-            { System.out.println("ELSE\t" + yytext()); return ELSE;
+            { contaToken("ELSE"); System.out.printf("Linha %d, Col %d | %-10s | %s | Código: %d\n", yyline+1, yycolumn+1, "ELSE", yytext(), ELSE); return ELSE;
             }
           // fall through
           case 66: break;
           case 30:
-            { System.out.println("READ\t" + yytext()); return READ;
+            { contaToken("READ"); System.out.printf("Linha %d, Col %d | %-10s | %s | Código: %d\n", yyline+1, yycolumn+1, "READ", yytext(), READ); return READ;
             }
           // fall through
           case 67: break;
           case 31:
-            { System.out.println("VOID\t" + yytext()); return VOID;
+            { contaToken("VOID"); System.out.printf("Linha %d, Col %d | %-10s | %s | Código: %d\n", yyline+1, yycolumn+1, "VOID", yytext(), VOID); return VOID;
             }
           // fall through
           case 68: break;
           case 32:
-            { System.out.println("CLASS\t" + yytext()); return CLASS;
+            { contaToken("CLASS"); System.out.printf("Linha %d, Col %d | %-10s | %s | Código: %d\n", yyline+1, yycolumn+1, "CLASS", yytext(), CLASS); return CLASS;
             }
           // fall through
           case 69: break;
           case 33:
-            { System.out.println("FINAL\t" + yytext()); return FINAL;
+            { contaToken("FINAL"); System.out.printf("Linha %d, Col %d | %-10s | %s | Código: %d\n", yyline+1, yycolumn+1, "FINAL", yytext(), FINAL); return FINAL;
             }
           // fall through
           case 70: break;
           case 34:
-            { System.out.println("PRINT\t" + yytext()); return PRINT;
+            { contaToken("PRINT"); System.out.printf("Linha %d, Col %d | %-10s | %s | Código: %d\n", yyline+1, yycolumn+1, "PRINT", yytext(), PRINT); return PRINT;
             }
           // fall through
           case 71: break;
           case 35:
-            { System.out.println("WHILE\t" + yytext()); return WHILE;
+            { contaToken("WHILE"); System.out.printf("Linha %d, Col %d | %-10s | %s | Código: %d\n", yyline+1, yycolumn+1, "WHILE", yytext(), WHILE); return WHILE;
             }
           // fall through
           case 72: break;
           case 36:
-            { System.out.println("RETURN\t" + yytext()); return RETURN;
+            { contaToken("RETURN"); System.out.printf("Linha %d, Col %d | %-10s | %s | Código: %d\n", yyline+1, yycolumn+1, "RETURN", yytext(), RETURN); return RETURN;
             }
           // fall through
           case 73: break;
           case 37:
-            { System.out.println("PROGRAM\t" + yytext()); return PROGRAM;
+            { contaToken("PROGRAM"); System.out.printf("Linha %d, Col %d | %-10s | %s | Código: %d\n", yyline+1, yycolumn+1, "PROGRAM", yytext(), PROGRAM); return PROGRAM;
             }
           // fall through
           case 74: break;

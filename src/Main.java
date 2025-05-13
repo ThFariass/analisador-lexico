@@ -1,5 +1,8 @@
 import java.io.FileReader;
 import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) {
@@ -13,17 +16,39 @@ public class Main {
 
         for (String nomeArquivo : arquivosTeste) {
             System.out.println("\n=== Testando arquivo: " + nomeArquivo + " ===");
-            try {
+        
+            String nomeArquivoSaida = nomeArquivo.replace(".jmm", ".txt");
+            PrintStream originalOut = System.out;
+        
+            try (PrintStream arquivoOut = new PrintStream(new FileOutputStream(nomeArquivoSaida))) {
+                System.setOut(arquivoOut);
+        
                 Scanner scanner = new Scanner(new FileReader(nomeArquivo));
-                while (scanner.yylex() != Scanner.EOF) {
-                    // Os tokens já são impressos pelo scanner
+                int EOF = -1;
+                int token;
+                while ((token = scanner.yylex()) != EOF) {
+                    // Os tokens são impressos pelo scanner
                 }
+        
+                System.out.flush(); // Garante que tudo foi escrito
+        
             } catch (FileNotFoundException e) {
+                System.setOut(originalOut);
                 System.out.println("Arquivo não encontrado: " + nomeArquivo);
+            } catch (IOException e) {
+                System.setOut(originalOut);
+                System.out.println("Erro ao criar arquivo de saída para: " + nomeArquivo);
+                e.printStackTrace();
             } catch (Exception e) {
+                System.setOut(originalOut);
                 System.out.println("Erro ao analisar arquivo: " + nomeArquivo);
                 e.printStackTrace();
+            } finally {
+                System.setOut(originalOut);
             }
+        
+            System.out.println("Saída salva em: " + nomeArquivoSaida);
         }
+        
     }
 }

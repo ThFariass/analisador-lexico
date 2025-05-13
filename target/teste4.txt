@@ -1,0 +1,73 @@
+Linha 1, Col 1 | PROGRAM    | program | Código: 1
+Linha 1, Col 9 | IDENT      | exemplo4 | Código: 12
+Linha 1, Col 18 | LBRACE     | { | Código: 27
+Linha 2, Col 5 | IDENT      | int | Código: 12
+Linha 2, Col 9 | IDENT      | arr | Código: 12
+Linha 2, Col 12 | LBRACKET   | [ | Código: 31
+Linha 2, Col 13 | NUMBER     | 10 | Código: 13
+Linha 2, Col 15 | RBRACKET   | ] | Código: 32
+Linha 2, Col 16 | SEMICOLON  | ; | Código: 33
+Linha 3, Col 5 | VOID       | void | Código: 4
+Linha 3, Col 10 | IDENT      | main | Código: 12
+Linha 3, Col 14 | LPAREN     | ( | Código: 29
+Linha 3, Col 15 | RPAREN     | ) | Código: 30
+Linha 3, Col 17 | LBRACE     | { | Código: 27
+Linha 4, Col 9 | READ       | read | Código: 9
+Linha 4, Col 13 | LPAREN     | ( | Código: 29
+Linha 4, Col 14 | IDENT      | arr | Código: 12
+Linha 4, Col 17 | LBRACKET   | [ | Código: 31
+Linha 4, Col 18 | NUMBER     | 0 | Código: 13
+Linha 4, Col 19 | RBRACKET   | ] | Código: 32
+Linha 4, Col 20 | RPAREN     | ) | Código: 30
+Linha 4, Col 21 | SEMICOLON  | ; | Código: 33
+Linha 5, Col 9 | PRINT      | print | Código: 10
+Linha 5, Col 14 | LPAREN     | ( | Código: 29
+Linha 5, Col 15 | IDENT      | arr | Código: 12
+Linha 5, Col 18 | LBRACKET   | [ | Código: 31
+Linha 5, Col 19 | NUMBER     | 0 | Código: 13
+Linha 5, Col 20 | RBRACKET   | ] | Código: 32
+Linha 5, Col 21 | COMMA      | , | Código: 34
+Linha 5, Col 23 | NUMBER     | 5 | Código: 13
+Linha 5, Col 24 | RPAREN     | ) | Código: 30
+Linha 5, Col 25 | SEMICOLON  | ; | Código: 33
+Linha 6, Col 9 | IDENT      | arr | Código: 12
+Linha 6, Col 12 | LBRACKET   | [ | Código: 31
+Linha 6, Col 13 | NUMBER     | 1 | Código: 13
+Linha 6, Col 14 | RBRACKET   | ] | Código: 32
+Linha 6, Col 16 | ASSIGN     | = | Código: 26
+Linha 6, Col 18 | IDENT      | arr | Código: 12
+Linha 6, Col 21 | LBRACKET   | [ | Código: 31
+Linha 6, Col 22 | NUMBER     | 0 | Código: 13
+Linha 6, Col 23 | RBRACKET   | ] | Código: 32
+Linha 6, Col 25 | TIMES      | * | Código: 17
+Linha 6, Col 27 | NUMBER     | 2 | Código: 13
+Linha 6, Col 29 | PLUS       | + | Código: 15
+Linha 6, Col 31 | NUMBER     | 7 | Código: 13
+Linha 6, Col 33 | DIV        | / | Código: 18
+Linha 6, Col 35 | NUMBER     | 3 | Código: 13
+Linha 6, Col 37 | MOD        | % | Código: 19
+Linha 6, Col 39 | NUMBER     | 2 | Código: 13
+Linha 6, Col 40 | SEMICOLON  | ; | Código: 33
+Linha 7, Col 5 | RBRACE     | } | Código: 28
+Linha 8, Col 1 | RBRACE     | } | Código: 28
+
+=== Resumo dos Tokens ===
+PRINT           : 1
+COMMA           : 1
+NUMBER          : 10
+MOD             : 1
+TIMES           : 1
+LPAREN          : 3
+LBRACKET        : 5
+RBRACKET        : 5
+RPAREN          : 3
+ASSIGN          : 1
+READ            : 1
+DIV             : 1
+IDENT           : 8
+RBRACE          : 2
+SEMICOLON       : 4
+VOID            : 1
+PROGRAM         : 1
+LBRACE          : 2
+PLUS            : 1

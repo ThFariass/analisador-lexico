@@ -1,0 +1,68 @@
+Linha 1, Col 1 | PROGRAM    | program | Código: 1
+Linha 1, Col 9 | IDENT      | exemplo3 | Código: 12
+Linha 1, Col 18 | LBRACE     | { | Código: 27
+Linha 2, Col 5 | IDENT      | int | Código: 12
+Linha 2, Col 9 | IDENT      | x | Código: 12
+Linha 2, Col 10 | SEMICOLON  | ; | Código: 33
+Linha 3, Col 5 | VOID       | void | Código: 4
+Linha 3, Col 10 | IDENT      | main | Código: 12
+Linha 3, Col 14 | LPAREN     | ( | Código: 29
+Linha 3, Col 15 | RPAREN     | ) | Código: 30
+Linha 3, Col 17 | LBRACE     | { | Código: 27
+Linha 4, Col 9 | IDENT      | x | Código: 12
+Linha 4, Col 11 | ASSIGN     | = | Código: 26
+Linha 4, Col 13 | NUMBER     | 10 | Código: 13
+Linha 4, Col 15 | SEMICOLON  | ; | Código: 33
+Linha 5, Col 9 | IF         | if | Código: 5
+Linha 5, Col 12 | LPAREN     | ( | Código: 29
+Linha 5, Col 13 | IDENT      | x | Código: 12
+Linha 5, Col 15 | GT         | > | Código: 22
+Linha 5, Col 17 | NUMBER     | 0 | Código: 13
+Linha 5, Col 18 | RPAREN     | ) | Código: 30
+Linha 5, Col 20 | LBRACE     | { | Código: 27
+Linha 6, Col 13 | IDENT      | x | Código: 12
+Linha 6, Col 15 | ASSIGN     | = | Código: 26
+Linha 6, Col 17 | IDENT      | x | Código: 12
+Linha 6, Col 19 | MINUS      | - | Código: 16
+Linha 6, Col 21 | NUMBER     | 1 | Código: 13
+Linha 6, Col 22 | SEMICOLON  | ; | Código: 33
+Linha 7, Col 9 | RBRACE     | } | Código: 28
+Linha 7, Col 11 | ELSE       | else | Código: 6
+Linha 7, Col 16 | LBRACE     | { | Código: 27
+Linha 8, Col 13 | IDENT      | x | Código: 12
+Linha 8, Col 15 | ASSIGN     | = | Código: 26
+Linha 8, Col 17 | NUMBER     | 0 | Código: 13
+Linha 8, Col 18 | SEMICOLON  | ; | Código: 33
+Linha 9, Col 9 | RBRACE     | } | Código: 28
+Linha 10, Col 9 | WHILE      | while | Código: 7
+Linha 10, Col 15 | LPAREN     | ( | Código: 29
+Linha 10, Col 16 | IDENT      | x | Código: 12
+Linha 10, Col 18 | NE         | != | Código: 21
+Linha 10, Col 21 | NUMBER     | 0 | Código: 13
+Linha 10, Col 22 | RPAREN     | ) | Código: 30
+Linha 10, Col 24 | IDENT      | x | Código: 12
+Linha 10, Col 26 | ASSIGN     | = | Código: 26
+Linha 10, Col 28 | IDENT      | x | Código: 12
+Linha 10, Col 30 | MINUS      | - | Código: 16
+Linha 10, Col 32 | NUMBER     | 1 | Código: 13
+Linha 10, Col 33 | SEMICOLON  | ; | Código: 33
+Linha 11, Col 5 | RBRACE     | } | Código: 28
+Linha 12, Col 1 | RBRACE     | } | Código: 28
+
+=== Resumo dos Tokens ===
+NUMBER          : 6
+LPAREN          : 3
+RPAREN          : 3
+ASSIGN          : 4
+GT              : 1
+MINUS           : 2
+IDENT           : 12
+RBRACE          : 4
+SEMICOLON       : 5
+NE              : 1
+ELSE            : 1
+WHILE           : 1
+VOID            : 1
+IF              : 1
+PROGRAM         : 1
+LBRACE          : 4

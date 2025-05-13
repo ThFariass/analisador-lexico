@@ -1,0 +1,35 @@
+Linha 1, Col 1 | PROGRAM    | program | Código: 1
+Linha 1, Col 9 | IDENT      | exemplo1 | Código: 12
+Linha 1, Col 18 | LBRACE     | { | Código: 27
+Linha 2, Col 5 | FINAL      | final | Código: 2
+Linha 2, Col 11 | IDENT      | int | Código: 12
+Linha 2, Col 15 | IDENT      | a | Código: 12
+Linha 2, Col 17 | ASSIGN     | = | Código: 26
+Linha 2, Col 19 | NUMBER     | 42 | Código: 13
+Linha 2, Col 21 | SEMICOLON  | ; | Código: 33
+Linha 3, Col 5 | FINAL      | final | Código: 2
+Linha 3, Col 11 | IDENT      | char | Código: 12
+Linha 3, Col 16 | IDENT      | b | Código: 12
+Linha 3, Col 18 | ASSIGN     | = | Código: 26
+Linha 3, Col 20 | CHARCONST  | 'z' | Código: 14
+Linha 3, Col 23 | SEMICOLON  | ; | Código: 33
+Linha 4, Col 5 | IDENT      | int | Código: 12
+Linha 4, Col 9 | IDENT      | x | Código: 12
+Linha 4, Col 10 | COMMA      | , | Código: 34
+Linha 4, Col 12 | IDENT      | y | Código: 12
+Linha 4, Col 13 | COMMA      | , | Código: 34
+Linha 4, Col 15 | IDENT      | z | Código: 12
+Linha 4, Col 16 | SEMICOLON  | ; | Código: 33
+Linha 5, Col 1 | RBRACE     | } | Código: 28
+
+=== Resumo dos Tokens ===
+COMMA           : 2
+NUMBER          : 1
+IDENT           : 9
+RBRACE          : 1
+SEMICOLON       : 3
+CHARCONST       : 1
+FINAL           : 2
+ASSIGN          : 2
+PROGRAM         : 1
+LBRACE          : 1
