@@ -48,7 +48,47 @@ target/ - Diretório onde são gerados os arquivos compilados e o scanner Java.
                     Arquivos de teste (.jmm)
 
 
-[Uploading Token-LexemaSmbolo-ExpressoRegular-ValorInterno-ExemplodeLexema-Observao.csv…]()
+| Token       | Lexema/Símbolo      | Expressão Regular           | Valor Interno | Exemplo de Lexema | Observação          |
+|-------------|---------------------|----------------------------|---------------|-------------------|---------------------|
+| PROGRAM     | program             | program                    | 1             | program           | Palavra reservada    |
+| FINAL       | final               | final                      | 2             | final             | Palavra reservada    |
+| CLASS       | class               | class                      | 3             | class             | Palavra reservada    |
+| VOID        | void                | void                       | 4             | void              | Palavra reservada    |
+| IF          | if                  | if                         | 5             | if                | Palavra reservada    |
+| ELSE        | else                | else                       | 6             | else              | Palavra reservada    |
+| WHILE       | while               | while                      | 7             | while             | Palavra reservada    |
+| RETURN      | return              | return                     | 8             | return            | Palavra reservada    |
+| READ        | read                | read                       | 9             | read              | Palavra reservada    |
+| PRINT       | print               | print                      | 10            | print             | Palavra reservada    |
+| NEW         | new                 | new                        | 11            | new               | Palavra reservada    |
+| IDENT       | identificador       | `[a-zA-Z_][a-zA-Z0-9_]*`  | 12            | soma, x, _temp    | Identificador        |
+| NUMBER      | número              | `[0-9]+`                   | 13            | 42, 123           | Número inteiro       |
+| CHARCONST   | constante caractere  | `([^'\n\r]|\\[nrt\\'])`    | 14            | 'a', '\n'         | Constante caractere  |
+| PLUS        | +                   | +                          | 15            | +                 | Operador aritmético  |
+| MINUS       | -                   | -                          | 16            | -                 | Operador aritmético  |
+| TIMES       | *                   | *                          | 17            | *                 | Operador aritmético  |
+| DIV         | /                   | /                          | 18            | /                 | Operador aritmético  |
+| MOD         | %                   | %                          | 19            | %                 | Operador aritmético  |
+| EQ          | ==                  | ==                         | 20            | ==                | Operador relacional  |
+| NE          | !=                  | !=                         | 21            | !=                | Operador relacional  |
+| GT          | >                   | >                          | 22            | >                 | Operador relacional  |
+| GE          | >=                  | >=                         | 23            | >=                | Operador relacional  |
+| LT          | <                   | <                          | 24            | <                 | Operador relacional  |
+| LE          | <=                  | <=                         | 25            | <=                | Operador relacional  |
+| ASSIGN      | =                   | =                          | 26            | =                 | Atribuição           |
+| LBRACE      | {                   | {                          | 27            | {                 | Delimitador          |
+| RBRACE      | }                   | }                          | 28            | }                 | Delimitador          |
+| LPAREN      | (                   | (                          | 29            | (                 | Delimitador          |
+| RPAREN      | )                   | )                          | 30            | )                 | Delimitador          |
+| LBRACKET    | [                   | [                          | 31            | [                 | Delimitador          |
+| RBRACKET    | ]                   | ]                          | 32            | ]                 | Delimitador          |
+| SEMICOLON   | ;                   | ;                          | 33            | ;                 | Delimitador          |
+| COMMA       | ,                   | ,                          | 34            | ,                 | Delimitador          |
+| DOT         | .                   | .                          | 35            | .                 | Delimitador          |
+| EOF         |                     |                            | -1            |                   | Fim de arquivo       |
+
+# Autômato Finito Determinista (AFD)
+O analisador implementa um AFD simplificado para reconhecer identificadores, números, constantes de caractere, operadores e delimitadores. O AFD completo incluiria estados para todos os tokens, mas aqui mostramos os principais para facilitar a compreensão.
 
 # Como Rodar o Projeto
 Pré-requisitos
@@ -77,25 +117,64 @@ bash
 java -cp target/ Main
 O programa vai gerar arquivos .txt com a saída detalhada da análise para cada arquivo .jmm.
 
-# Arquivos de Teste
-Os arquivos de teste com extensão .jmm devem estar na raiz do projeto ou no caminho especificado no Main.java. Eles contêm exemplos de código JAVA−− para serem analisados.
+# Resultados Experimentais
+Foram realizados testes com diferentes construções da linguagem JAVA−−.
 
-# Saída Esperada
-Para cada arquivo .jmm, será gerado um arquivo .txt contendo:
+Teste 1: Declaração de constantes e variáveis
+Arquivo: teste1.jmm
 
-Linha e coluna do token.
+Reconhece: palavras reservadas (program, final), identificadores, números, constantes de caractere, delimitadores.
 
-Nome do token.
+Teste 2: Declaração de classe e método
+Arquivo: teste2.jmm
 
-Lexema (texto reconhecido).
+Reconhece: class, void, return, delimitadores de bloco e parâmetros.
 
-Código interno do token.
+Teste 3: Estruturas de controle
+Arquivo: teste3.jmm
 
-Ao final, um resumo com a contagem de cada tipo de token encontrado.
+Reconhece: if, else, while, operadores relacionais (>, !=).
 
-# Detalhes Técnicos
-O scanner utiliza variáveis internas do JFlex (yyline, yycolumn) para capturar posição dos tokens.
+Teste 4: Entrada, saída, arrays e operadores
+Arquivo: teste4.jmm
 
-A contagem dos tokens é feita via um Map<String, Integer> simples.
+Reconhece: read, print, acesso a arrays, operadores aritméticos (*, +, /, %).
 
-O código foi escrito com foco em simplicidade e clareza, evitando modificadores estáticos para facilitar a compreensão.
+Teste 5: Uso de new, chamada de métodos e designadores complexos
+Arquivo: teste5.jmm
+
+Reconhece: uso de new, chamadas de métodos, designadores.
+
+# Conclusão
+O analisador léxico desenvolvido reconhece corretamente todos os tokens da linguagem JAVA−−, tratando erros léxicos e fornecendo uma saída detalhada e um resumo dos tokens. O uso do JFlex permitiu uma implementação eficiente e fácil de manter.
+
+Destaques:
+
+Tratamento de erros com mensagens específicas.
+
+Estrutura modular e flexível.
+
+Desempenho eficiente.
+
+Possíveis extensões:
+
+Suporte a comentários de linha/bloco.
+
+Tratamento de erros mais sofisticado.
+
+Integração com analisador sintático.
+
+# Referências
+AHO, A. V.; LAM, M. S.; SETHI, R.; ULLMAN, J. D. Compiladores: Princípios, Técnicas e Ferramentas. 2ª ed. São Paulo: Pearson Addison Wesley, 2008.
+
+APPEL, A. W. Modern Compiler Implementation in Java. 2ª ed. Cambridge University Press, 2002.
+
+LEVINE, J.; MASON, T.; BROWN, D. Lex & Yacc. 2ª ed. O'Reilly Media, 1992.
+
+Documentação oficial do JFlex: https://jflex.de/manual.html
+
+COOPER, K. D.; TORCZON, L. Engineering a Compiler. 2ª ed. Morgan Kaufmann, 2011.
+
+# Alunos
+Thiago Henrique
+Fábio Vitor
