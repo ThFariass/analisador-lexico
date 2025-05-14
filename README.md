@@ -1,7 +1,33 @@
 # Analisador Léxico para a linguagem JAVA
 
 # Descrição
-Este projeto implementa um analisador léxico para a linguagem JAVA−− utilizando o gerador JFlex. O analisador reconhece os tokens da linguagem, imprime informações detalhadas de cada token (linha, coluna, tipo, lexema e código interno) e gera um resumo da contagem de tokens ao final da análise.
+Este projeto implementa um analisador léxico para a linguagem JAVA−−, utilizando o gerador JFlex. O objetivo é identificar e classificar tokens do código-fonte, convertendo-os em unidades para uso posterior pelo analisador sintático. O scanner reconhece palavras reservadas, identificadores, constantes, operadores, delimitadores e trata erros léxicos.
+
+# Funcionamento do Analisador Léxico
+O funcionamento segue o fluxo:
+
+Leitura do arquivo de entrada (.jmm) com código-fonte JAVA−−.
+
+Análise caractere por caractere para identificação dos tokens.
+
+Classificação dos tokens conforme as regras definidas em expressões regulares.
+
+Retorno dos tokens com seus valores internos.
+
+Tratamento de erros léxicos, reportando caracteres inválidos.
+
+# Etapas do Desenvolvimento
+Estudo da gramática da linguagem JAVA−− para identificar tokens.
+
+Definição das expressões regulares para cada token.
+
+Implementação do arquivo de especificação para o JFlex (scanner.flex).
+
+Geração do código Java do analisador usando JFlex.
+
+Implementação do programa principal (Main.java) para testar o analisador.
+
+Testes com diferentes construções da linguagem.
 
 # Estrutura do Projeto
 src/scanner.flex - Arquivo fonte do analisador léxico em JFlex.
@@ -11,6 +37,18 @@ src/Main.java - Programa principal que executa o analisador sobre arquivos de te
 libs/jflex-1.9.1.jar - Biblioteca do JFlex (versão usada).
 
 target/ - Diretório onde são gerados os arquivos compilados e o scanner Java.
+
+# Diagrama de Interdependência
++------------------+        +-------------------+        +------------------+
+|  scanner.flex    | -----> |   Scanner.java    | <----- |    Main.java     |
++------------------+        +-------------------+        +------------------+
+         |                                                     |
+         +-------------------+---------------------------------+
+                             |
+                    Arquivos de teste (.jmm)
+
+
+[Uploading Token-LexemaSmbolo-ExpressoRegular-ValorInterno-ExemplodeLexema-Observao.csv…]()
 
 # Como Rodar o Projeto
 Pré-requisitos
