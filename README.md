@@ -21,7 +21,7 @@ JFlex 1.9.1 (arquivo jflex-1.9.1.jar disponível na pasta libs).
 Arquivos de teste .jmm prontos para análise (exemplos fornecidos no projeto).
 
 Passo 1: Gerar o scanner
-No terminal, execute o comando para gerar o scanner Java a partir do arquivo .flex:
+No terminal do gitbash dentro da pasta "analisador-lexico", execute o comando para gerar o scanner Java a partir do arquivo .flex:
 
 bash
 java -jar libs/jflex-1.9.1.jar src/scanner.flex -d target/
