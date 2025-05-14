@@ -90,6 +90,21 @@ target/ - Diretório onde são gerados os arquivos compilados e o scanner Java.
 # Autômato Finito Determinista (AFD)
 O analisador implementa um AFD simplificado para reconhecer identificadores, números, constantes de caractere, operadores e delimitadores. O AFD completo incluiria estados para todos os tokens, mas aqui mostramos os principais para facilitar a compreensão.
 
+| Estado | Entrada                | Próximo Estado | Token Reconhecido |
+|--------|------------------------|---------------|-------------------|
+| q0     | letra ou _             | q1            |                   |
+| q1     | letra/dígito/_         | q1            |                   |
+| q1     | outro                  | fim           | IDENT             |
+| q0     | dígito                 | q2            |                   |
+| q2     | dígito                 | q2            |                   |
+| q2     | outro                  | fim           | NUMBER            |
+| q0     | '                      | q3            |                   |
+| q3     | qualquer exceto ' e \  | q4            |                   |
+| q3     | \                      | q5            |                   |
+| q5     | n, r, t, ', \          | q4            |                   |
+| q4     | '                      | fim           | CHARCONST         |
+
+
 # Como Rodar o Projeto
 Pré-requisitos
 Java JDK 8 ou superior instalado.
@@ -176,5 +191,5 @@ Documentação oficial do JFlex: https://jflex.de/manual.html
 COOPER, K. D.; TORCZON, L. Engineering a Compiler. 2ª ed. Morgan Kaufmann, 2011.
 
 # Alunos
-Thiago Henrique
+Thiago Henrique,
 Fábio Vitor
